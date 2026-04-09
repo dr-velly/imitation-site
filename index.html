@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURUM — Luxury Jewelry</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/aurum-dual-theme.css">
+</head>
+<body>
+
+<div class="cur-d"></div><div class="cur-r"></div>
+<canvas id="ptc"></canvas>
+<div class="grain"></div>
+<div class="theme-flash" id="theme-flash"></div>
+
+<div class="loader" id="loader"><div class="loader-d"></div><div class="loader-t">Aurum</div></div>
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo" data-h>AURUM</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#hero" data-h>Home</a></li>
+    <li><a href="#categories" data-h>Collections</a></li>
+    <li><a href="#products" data-h>Shop</a></li>
+    <li><a href="#story" data-h>Story</a></li>
+    <li><a href="#contact" data-h>Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <!-- ★ THEME TOGGLE ★ -->
+    <div class="theme-toggle">
+      <span class="theme-toggle-label" id="tl-dark">Dark</span>
+      <div class="theme-switch" id="theme-switch" data-h title="Switch theme">
+        <div class="theme-switch-stars"><span class="theme-switch-star"></span><span class="theme-switch-star"></span><span class="theme-switch-star"></span><span class="theme-switch-cloud"></span><span class="theme-switch-cloud"></span></div>
+        <div class="theme-switch-knob"><div class="theme-switch-glow"></div></div>
+      </div>
+      <span class="theme-toggle-label" id="tl-light">Light</span>
+    </div>
+    <button class="nav-icon" data-h id="nav-wish" title="Wishlist">♡<span class="nav-badge" id="wish-badge">0</span></button>
+    <button class="nav-icon" data-h id="nav-cart" title="Cart">🛒<span class="nav-badge" id="cart-badge">0</span></button>
+    <button class="nav-icon" data-h id="nav-user" title="Account">👤</button>
+    <span class="nav-user-name" id="nav-uname"></span>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Auth Panel -->
+<div class="panel-overlay panel-center" id="auth-panel"><div class="panel-bg" data-close="auth-panel"></div><div class="panel"><div class="panel-head"><div class="panel-title">Welcome to AURUM</div><button class="panel-close" data-close="auth-panel">✕</button></div><div class="panel-body"><div class="auth-tabs"><button class="auth-tab active" data-auth-tab="login">Sign In</button><button class="auth-tab" data-auth-tab="register">Create Account</button></div><div class="auth-form active" id="auth-login"><div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" id="login-email" placeholder="your@email.com"><div class="form-err">Please enter a valid email</div></div><div class="form-group form-group-pwd"><label class="form-label">Password</label><input class="form-input" type="password" id="login-pwd" placeholder="Enter password"><button class="pwd-toggle" onclick="togglePwd('login-pwd',this)">Show</button><div class="form-err">Password is required</div></div><button class="btn btn-gold" id="login-btn">Sign In</button><div class="text-divider">or</div><button class="link-btn" onclick="showAuthTab('register')">Create a new account →</button></div><div class="auth-form" id="auth-register"><div class="form-row"><div class="form-group"><label class="form-label">First Name</label><input class="form-input" id="reg-fname" placeholder="First name"><div class="form-err">Required</div></div><div class="form-group"><label class="form-label">Last Name</label><input class="form-input" id="reg-lname" placeholder="Last name"><div class="form-err">Required</div></div></div><div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" id="reg-email" placeholder="your@email.com"><div class="form-err">Enter a valid email</div></div><div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel" id="reg-phone" placeholder="+91 XXXXX XXXXX"><div class="form-err">Enter phone number</div></div><div class="form-group form-group-pwd"><label class="form-label">Password</label><input class="form-input" type="password" id="reg-pwd" placeholder="Min 6 characters"><button class="pwd-toggle" onclick="togglePwd('reg-pwd',this)">Show</button><div class="form-err">Min 6 characters</div></div><button class="btn btn-gold" id="reg-btn">Create Account</button><div class="text-divider">or</div><button class="link-btn" onclick="showAuthTab('login')">Already have an account? Sign in →</button></div></div></div></div>
+
+<!-- Account Panel -->
+<div class="panel-overlay" id="account-panel"><div class="panel-bg" data-close="account-panel"></div><div class="panel"><div class="panel-head"><div class="panel-title">My Account</div><button class="panel-close" data-close="account-panel">✕</button></div><div class="panel-body" id="account-body"></div><div class="panel-footer"><button class="btn btn-danger btn-sm" id="logout-btn" style="width:100%">Sign Out</button></div></div></div>
+
+<!-- Address Panel -->
+<div class="panel-overlay panel-center" id="addr-panel"><div class="panel-bg" data-close="addr-panel"></div><div class="panel"><div class="panel-head"><div class="panel-title" id="addr-panel-title">Add Address</div><button class="panel-close" data-close="addr-panel">✕</button></div><div class="panel-body"><div class="form-group"><label class="form-label">Full Name</label><input class="form-input" id="addr-name" placeholder="Full name"><div class="form-err">Required</div></div><div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel" id="addr-phone" placeholder="+91 XXXXX XXXXX"><div class="form-err">Required</div></div><div class="form-group"><label class="form-label">Address Line 1</label><input class="form-input" id="addr-line1" placeholder="House No, Street"><div class="form-err">Required</div></div><div class="form-group"><label class="form-label">Address Line 2</label><input class="form-input" id="addr-line2" placeholder="Landmark, Area"></div><div class="form-row"><div class="form-group"><label class="form-label">City</label><input class="form-input" id="addr-city" placeholder="City"><div class="form-err">Required</div></div><div class="form-group"><label class="form-label">State</label><input class="form-input" id="addr-state" placeholder="State"><div class="form-err">Required</div></div></div><div class="form-row"><div class="form-group"><label class="form-label">Pincode</label><input class="form-input" id="addr-pin" placeholder="Pincode"><div class="form-err">Required</div></div><div class="form-group"><label class="form-label">Type</label><select class="form-input" id="addr-type"><option value="Home">Home</option><option value="Work">Work</option><option value="Other">Other</option></select></div></div><button class="btn btn-gold" id="addr-save-btn" style="margin-top:6px">Save Address</button></div></div></div>
+
+<!-- Cart Panel -->
+<div class="panel-overlay" id="cart-panel"><div class="panel-bg" data-close="cart-panel"></div><div class="panel"><div class="panel-head"><div class="panel-title">Shopping Bag</div><button class="panel-close" data-close="cart-panel">✕</button></div><div class="panel-body" id="cart-body"></div><div class="panel-footer" id="cart-footer"></div></div></div>
+
+<!-- Wishlist Panel -->
+<div class="panel-overlay" id="wish-panel"><div class="panel-bg" data-close="wish-panel"></div><div class="panel"><div class="panel-head"><div class="panel-title">Wishlist</div><button class="panel-close" data-close="wish-panel">✕</button></div><div class="panel-body" id="wish-body"></div></div></div>
+
+<!-- Checkout Panel -->
+<div class="panel-overlay" id="checkout-panel"><div class="panel-bg"></div><div class="panel" style="width:540px"><div class="panel-head"><div class="panel-title">Checkout</div><button class="panel-close" data-close="checkout-panel">✕</button></div><div class="panel-body" id="checkout-body"></div></div></div>
+
+<!-- Product Detail -->
+<div class="det-ov" id="det-ov"><div class="det-bg" id="det-bg"></div><div class="det-p" id="det-p"></div></div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-media"><img src="images/hero-banner.jpg" alt="Jewelry"></div>
+  <div class="hero-v"></div><div class="hero-g"></div>
+  <div class="hero-c">
+    <div class="hero-ey"><span class="hero-ey-line"></span><span class="hero-ey-text">New Collection 2026</span></div>
+    <h1 class="hero-t"><span class="ln"><span class="lni">Where <em>Elegance</em></span></span><span class="ln"><span class="lni">Meets Eternity</span></span></h1>
+    <p class="hero-d">Discover handcrafted jewelry that tells your story. Each piece is a masterwork of precious metals and gemstones, forged for moments that last forever.</p>
+    <div class="hero-cta"><a href="#products" class="btn btn-gold" data-h>Explore Collection</a><a href="#story" class="btn btn-ghost" data-h>Our Heritage</a></div>
+  </div>
+  <div class="hero-scroll"><span class="hero-scroll-t">Scroll</span><div class="hero-scroll-l"></div></div>
+</section>
+
+<div class="marq"><div class="marq-t" id="marq-t"></div></div>
+
+<!-- Categories -->
+<section class="sp" id="categories" style="background:var(--bg-primary)"><div class="container"><div class="sh ru"><div class="sh-ey">Browse By Category</div><h2 class="sh-t">Curated Collections</h2><div class="gd"></div></div><div id="cat-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px"></div></div></section>
+
+<!-- Products -->
+<section class="sp" id="products" style="background:var(--bg-secondary)"><div class="container"><div class="sh ru"><div class="sh-ey">Our Atelier</div><h2 class="sh-t">The Collection</h2><div class="gd"></div></div><div class="fb ru" id="filter-bar"></div><div class="pg" id="prod-grid"></div></div></section>
+
+<!-- Story -->
+<section class="sp" id="story" style="background:var(--bg-primary)"><div class="container"><div class="sto-g"><div class="sto-iw ru"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=700&h=480&fit=crop" alt="Craft"><div class="sto-if"></div></div><div class="sto-c"><div class="sh-ey ru" style="text-align:left">Our Heritage</div><h2 class="ru">Three Generations<br>of <em>Artistry</em></h2><div class="sto-gl ru"></div><p class="ru">Since 1968, AURUM has been synonymous with exceptional craftsmanship and timeless design. What began as a small workshop has evolved into a celebrated atelier.</p><p class="ru">Every piece is handcrafted by master artisans who bring decades of expertise. We source only the finest gemstones and precious metals.</p><div class="sto-stats ru"><div><div class="sto-sn" data-count="58">0</div><div class="sto-sl">Years Legacy</div></div><div><div class="sto-sn" data-count="12000">0</div><div class="sto-sl">Pieces Crafted</div></div><div><div class="sto-sn" data-count="40">0</div><div class="sto-sl">Master Artisans</div></div></div></div></div></div></section>
+
+<!-- Testimonials -->
+<section class="sp" style="background:var(--bg-secondary)"><div class="container"><div class="sh ru"><div class="sh-ey">Client Stories</div><h2 class="sh-t">Voices of Elegance</h2><div class="gd"></div></div><div class="tg"><div class="tc ru s1"><div class="tc-q">"</div><div class="tc-s">★ ★ ★ ★ ★</div><p class="tc-t">The craftsmanship is absolutely impeccable. My engagement ring receives compliments everywhere.</p><div class="tc-a">Priya Sharma</div><div class="tc-l">Mumbai</div></div><div class="tc ru s2"><div class="tc-q">"</div><div class="tc-s">★ ★ ★ ★ ★</div><p class="tc-t">WhatsApp ordering was seamless. The emerald necklace exceeded every expectation.</p><div class="tc-a">Rajesh Patel</div><div class="tc-l">Ahmedabad</div></div><div class="tc ru s3"><div class="tc-q">"</div><div class="tc-s">★ ★ ★ ★ ★</div><p class="tc-t">Investment-worthy pieces. I've been a loyal customer for five years.</p><div class="tc-a">Ananya Desai</div><div class="tc-l">Bangalore</div></div></div></div></section>
+
+<!-- Newsletter -->
+<section class="sp nls" id="contact" style="background:var(--bg-primary)"><div class="container"><div class="nls-in"><div class="sh-ey ru">Stay Enchanted</div><h2 class="sh-t ru">Join the Inner Circle</h2><div class="gd ru"></div><div class="nls-f ru"><input type="email" class="nls-i" placeholder="Your email address"><button class="nls-s" data-h onclick="this.previousElementSibling.value='';this.previousElementSibling.placeholder='Thank you! ✦';setTimeout(()=>this.previousElementSibling.placeholder='Your email address',3e3)">Subscribe</button></div></div></div></section>
+
+<!-- Footer -->
+<footer class="ft"><div class="container"><div class="ft-g"><div><div class="ft-logo">AURUM</div><p class="ft-desc">Handcrafted luxury jewelry since 1968. Every piece tells a story of timeless elegance.</p></div><div><div class="ft-h">Collections</div><ul class="ft-l"><li><a href="#" data-h>Rings</a></li><li><a href="#" data-h>Necklaces</a></li><li><a href="#" data-h>Earrings</a></li><li><a href="#" data-h>Bracelets</a></li></ul></div><div><div class="ft-h">Company</div><ul class="ft-l"><li><a href="#story" data-h>Our Story</a></li><li><a href="#" data-h>Craftsmanship</a></li><li><a href="#" data-h>Sustainability</a></li></ul></div><div><div class="ft-h">Get in Touch</div><ul class="ft-l"><li><a href="https://wa.me/91XXXXXXXXXX" target="_blank" data-h>WhatsApp Us</a></li><li><a href="tel:+91XXXXXXXXXX" data-h>+91 XXXXX XXXXX</a></li><li><a href="mailto:hello@aurum.in" data-h>hello@aurum.in</a></li></ul></div></div><div class="ft-bot"><span>© 2026 AURUM Jewelry</span><span>Crafted with ✦ in India</span></div></div></footer>
+
+<a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="waf" data-h><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<script src="js/aurum-dual-theme.js"></script>
+</body>
+</html>
