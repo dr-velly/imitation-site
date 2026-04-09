@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Celestial Gold Ring",
+    "category": "Rings",
+    "price": 25000,
+    "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&h=600&fit=crop",
+    "description": "An exquisite 22K gold ring featuring a celestial-inspired design with delicate engravings. Handcrafted by master artisans, this piece embodies timeless elegance and sophistication. Perfect for special occasions or as a statement piece in your everyday collection."
+  },
+  {
+    "id": 2,
+    "name": "Royal Diamond Necklace",
+    "category": "Necklaces",
+    "price": 85000,
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&h=600&fit=crop",
+    "description": "A stunning diamond-studded necklace set in 18K white gold. Featuring a cascade of brilliant-cut diamonds that catch the light with every movement. This royal-inspired piece is the perfect companion for formal events and celebrations."
+  },
+  {
+    "id": 3,
+    "name": "Pearl Drop Earrings",
+    "category": "Earrings",
+    "price": 18000,
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&h=600&fit=crop",
+    "description": "Elegant freshwater pearl drop earrings with 14K gold hooks. These luminous pearls have been carefully selected for their perfect shape and iridescent luster. A versatile piece that transitions seamlessly from day to evening wear."
+  },
+  {
+    "id": 4,
+    "name": "Sapphire Eternity Ring",
+    "category": "Rings",
+    "price": 42000,
+    "image": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&h=600&fit=crop",
+    "description": "A breathtaking eternity ring featuring channel-set blue sapphires in a platinum band. Each sapphire has been hand-selected for its vivid color and clarity. This ring symbolizes eternal love and commitment."
+  },
+  {
+    "id": 5,
+    "name": "Emerald Pendant Necklace",
+    "category": "Necklaces",
+    "price": 67000,
+    "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=600&fit=crop",
+    "description": "A magnificent emerald pendant suspended from a delicate 18K gold chain. The centerpiece is a 2-carat Colombian emerald surrounded by a halo of micro-pavé diamonds. A true collector's piece that commands attention."
+  },
+  {
+    "id": 6,
+    "name": "Diamond Hoop Earrings",
+    "category": "Earrings",
+    "price": 35000,
+    "image": "https://images.unsplash.com/photo-1630019852942-f89202989a59?w=600&h=600&fit=crop",
+    "description": "Classic diamond hoop earrings reimagined with a modern twist. Featuring 48 brilliant-cut diamonds set in 18K rose gold, these hoops offer a perfect blend of contemporary style and timeless glamour."
+  },
+  {
+    "id": 7,
+    "name": "Vintage Rose Gold Ring",
+    "category": "Rings",
+    "price": 31000,
+    "image": "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&h=600&fit=crop",
+    "description": "A vintage-inspired rose gold ring featuring intricate filigree work and a central morganite gemstone. This romantic piece evokes the artistry of a bygone era while maintaining a distinctly modern appeal."
+  },
+  {
+    "id": 8,
+    "name": "Layered Gold Necklace",
+    "category": "Necklaces",
+    "price": 28000,
+    "image": "https://images.unsplash.com/photo-1515562141589-67f0d569b6f5?w=600&h=600&fit=crop",
+    "description": "A sophisticated layered necklace featuring three delicate 22K gold chains of varying lengths. Each chain is adorned with a unique pendant — a diamond solitaire, a gold disc, and a tiny star charm."
+  },
+  {
+    "id": 9,
+    "name": "Ruby Stud Earrings",
+    "category": "Earrings",
+    "price": 22000,
+    "image": "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=600&h=600&fit=crop",
+    "description": "Exquisite ruby stud earrings set in 18K yellow gold. Each earring features a perfectly matched Burmese ruby with exceptional color saturation. These studs add a touch of regal elegance to any outfit."
+  },
+  {
+    "id": 10,
+    "name": "Platinum Tennis Bracelet",
+    "category": "Bracelets",
+    "price": 95000,
+    "image": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=600&fit=crop",
+    "description": "A luxurious platinum tennis bracelet set with 36 round brilliant-cut diamonds totaling 5 carats. The four-prong setting maximizes light reflection, creating an unparalleled sparkle. The ultimate expression of refined luxury."
+  },
+  {
+    "id": 11,
+    "name": "Gold Charm Bracelet",
+    "category": "Bracelets",
+    "price": 19000,
+    "image": "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&h=600&fit=crop",
+    "description": "A playful yet elegant 22K gold charm bracelet featuring handcrafted charms including a heart, a star, a crescent moon, and a tiny key. Each charm tells a story, making this bracelet deeply personal and meaningful."
+  },
+  {
+    "id": 12,
+    "name": "Art Deco Diamond Ring",
+    "category": "Rings",
+    "price": 56000,
+    "image": "https://images.unsplash.com/photo-1598560917505-59a3ad559071?w=600&h=600&fit=crop",
+    "description": "An Art Deco-inspired diamond ring featuring geometric patterns and a central princess-cut diamond. Set in platinum with sapphire accents, this architectural masterpiece pays homage to the glamour of the 1920s."
+  }
+]
